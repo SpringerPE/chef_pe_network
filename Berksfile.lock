@@ -1,0 +1,14 @@
+DEPENDENCIES
+  afw
+    git: https://github.com/jvehent/AFW.git
+    revision: 763772e8b77cbf1d7c00e3ceedd692d3c6addaf2
+  chef-solo-search
+  pe_network
+    path: .
+    metadata: true
+
+GRAPH
+  afw (0.0.7)
+  chef-solo-search (0.5.1)
+  pe_network (0.1.0)
+    afw (~> 0.0.7)
