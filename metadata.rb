@@ -1,8 +1,12 @@
 name             'pe_network'
-maintainer       'Springer'
-maintainer_email 'jose.riguera@springer.com'
+maintainer       'Platform Engineering'
+maintainer_email 'platform-engineering@springer.com'
 license          'Apache 2.0'
-description      'Installs/Configures pe_network'
-long_description 'Installs/Configures pe_network'
-version          '0.1.0'
+description      'Network and FW configuration for servers'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.0.1'
+
+%w{ debian ubuntu centos redhat  }.each do |os|
+  supports os
+end
 
