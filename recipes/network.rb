@@ -2,7 +2,7 @@
 # Cookbook Name:: pe_network
 # Recipe:: network
 #
-# Copyright (C) 2014 Springer
+# Copyright (C) 2014 Jose Riguera, Springer SBM
 # 
 
 class ::Chef::Recipe
@@ -11,7 +11,7 @@ end
 Chef::Resource::RubyBlock.send(:include, SPRpe)
 
 udev = node[:pe_network][:udev]
-networks = node[:pe_network][:server]
+networks = node[:pe_network][:network]
 begin
    networks.each_pair do |ip, parameters|
       # Process the settings
@@ -21,9 +21,9 @@ begin
          dev = dev_addr(mac)
          Chef::Log.info("Current device for #{mac}: #{dev}")
          if !(device && device == dev)
+            device = device ? device : dev            
             ruby_block "update_udev" do
                block do
-                  device = device ? device : dev
                   net_udev(mac, device, true, udev)
                end
             end
@@ -57,10 +57,4 @@ end
 #   service_name "networking"
 #   action :restart
 #end
-
-
-
-
-
-
 

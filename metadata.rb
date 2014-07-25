@@ -10,3 +10,4 @@ version          '0.0.1'
   supports os
 end
 
+depends 'afw', '~> 0.0.7'  
