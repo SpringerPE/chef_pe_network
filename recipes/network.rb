@@ -21,9 +21,9 @@ begin
          dev = dev_addr(mac)
          Chef::Log.info("Current device for #{mac}: #{dev}")
          if !(device && device == dev)
+            device = device ? device : dev            
             ruby_block "update_udev" do
                block do
-                  device = device ? device : dev
                   net_udev(mac, device, true, udev)
                end
             end
