@@ -6,3 +6,6 @@ cookbook 'afw', git: 'https://github.com/jvehent/AFW.git'
 
 metadata
 
+group :dev do
+    cookbook 'chef-solo-search'
+end

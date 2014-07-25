@@ -6,7 +6,7 @@ module SPRpe
   # @param [String] name of the databag
   # @param [String] name of the bag
   # @param [String] optional environment
-  def set_databag(rootitem, databag, bagname, environment=None)
+  def set_databag(rootitem, databag, bagname, environment=nil)
 	begin
 	    configuration = data_bag_item(databag, bagname)
             configuration = configuration[environment] if environment

@@ -17,6 +17,10 @@
 # limitations under the License.
 #
 
+# Loads the configuration from a databag
+if node[:pe_network][:data_bag]
+   include_recipe 'pe_network::databag'
+end
 
 # Setup MACs, Devs and IPs
 include_recipe 'pe_network::network'

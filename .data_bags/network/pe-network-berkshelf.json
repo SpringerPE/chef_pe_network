@@ -1,0 +1,33 @@
+{
+    "id": "pe-network-berkshelf",
+    "_default": {
+        "network": {
+           "192.168.1.2": {
+               "device": "eth2",
+               "mac": "08:00:27:84:ee:e7",
+               "mtu": "1400"
+           }
+        },
+        "firewall": {
+            "enabled": true,
+            "enable_input_drop": true,
+            "enable_output_drop": false,
+            "rules": {
+                "allow ssh": {
+                    "direction": "in",
+                    "user": "root",
+                    "protocol": "tcp",
+                    "source": ["0.0.0.0/0"],
+                    "dport": "22"
+                },
+                "allow web": {
+                    "direction": "in",
+                    "user": "root",
+                    "protocol": "tcp",
+                    "source": ["0.0.0.0/0"],
+                    "dport": "80"
+                }
+        }
+    }
+}
+
