@@ -2,8 +2,6 @@
 
 Initial release of pe_network
 
-* Enhancements
-  * an enhancement
-
-* Bug Fixes
-  * a bug fix
+* Support to update and create udev rules for devices depending on the mac address
+* Link inet addr to a device
+* Setup firewall rules

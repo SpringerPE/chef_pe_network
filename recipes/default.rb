@@ -2,7 +2,7 @@
 # Cookbook Name:: pe_network
 # Recipe:: default
 #
-# Copyright (C) 2014 Springer
+# Copyright (C) 2014 Jose Riguera, Springer SBM
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,3 +16,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+# Loads the configuration from a databag
+if node[:pe_network][:data_bag]
+   include_recipe 'pe_network::databag'
+end
+
+# Setup MACs, Devs and IPs
+include_recipe 'pe_network::network'
+
+# Setup firewall
+if node[:pe_network][:firewall] 
+   include_recipe 'pe_network::firewall'
+end
+
+
