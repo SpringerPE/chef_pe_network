@@ -63,10 +63,10 @@ default[:pe_network][:firewall][:rules] = {
 #     :env => '<production|staging|...>',
 #     :options => ['disable_env_limit', 'disable_syntax_check', ...]
 }
-
+```
 All the default value of the attributes are safe and the best way to define the 
 parameters is using a databag.
-```
+
 
 ## Usage
 
@@ -139,7 +139,7 @@ In the second part you can define all the firewall rules. You can use chef searc
 You can use chef searchs in the source and destination attributes. More info in the
 AFW's home site: https://github.com/jvehent/AFW
 
-To apply the cnahges just include `pe_network` in your node's `run_list`:
+To apply the cookbook just include `pe_network` in your node's `run_list`:
 
 ```json
 {
@@ -151,4 +151,4 @@ To apply the cnahges just include `pe_network` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: Springer (<jose.riguera@springer.com>)
+Author:: Jose Riguera Lopez, Springer SBM (<jose.riguera@springer.com>)
