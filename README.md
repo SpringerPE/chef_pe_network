@@ -31,7 +31,8 @@ default[:pe_network][:network] = {
 #      :mask => "255.255.255.0",
 #      :mac => "08:00:27:84:ee:e7",
 #      :mtu => "1400",
-#      :bcast => "192.168.1.255"
+#      :bcast => "192.168.1.255",
+#      :onboot => "yes"
 #  }
 }
 

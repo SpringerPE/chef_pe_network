@@ -45,6 +45,7 @@ begin
          mtu parameters[:mtu] ? parameters[:mtu] : nil
          mask parameters[:mask] ? parameters[:mask] : nil
          bcast parameters[:bcast] ? parameters[:bcast] : nil
+         onboot parameters[:onboot] ? parameters[:onboot] : nil
          action :add
          #notifies :restart, "service[networking]", :delayed
       end
