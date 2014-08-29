@@ -25,14 +25,21 @@ default[:pe_network][:environment] = node[:chef_environment] ? node[:chef_enviro
 ### Network Definitions
 default[:pe_network][:udev] = "/etc/udev/rules.d/70-persistent-net.rules"
 default[:pe_network][:network] = {
-#   '192.168.1.2' => {
-#      :device => "eth2",
+#
+# Linking an IP to a device:
+#  'eth0' => {
+#      :ip => "192.168.1.2",
 #      :network => "192.168.1.0",
 #      :mask => "255.255.255.0",
 #      :mac => "08:00:27:84:ee:e7",
 #      :mtu => "1400",
 #      :bcast => "192.168.1.255",
 #      :onboot => "yes"
+#  },
+#
+# Forcing the name of a device by the MAC:
+#  'eth1' => {
+#      :mac => "08:00:27:84:ee:e7"
 #  }
 }
 
@@ -82,8 +89,8 @@ in json format, for example:
     "id": "pe-network-berkshelf",
     "_default": {
         "network": {
-           "192.168.1.2": {
-               "device": "eth2",
+           "eth1": {
+               "ip": "192.168.1.2",
                "mac": "08:00:27:84:ee:e7",
                "mtu": "1400"
            }
@@ -118,7 +125,7 @@ is to define the ifconfig parameters (it also supports Centos and RH):
  * `device` is the only mandatory attribute, the cookbook will assign the IP to it.
  * If there is a `mac`, it will change or create the udev rules to assure the mapping (even if the mac is not found).
  * You can define other attributes like:
-     * `mtu`  
+     * `mtu`
      * `network`
      * `mask`
      * `bcast` 

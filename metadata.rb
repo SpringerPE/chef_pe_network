@@ -11,3 +11,4 @@ version          '0.1.0'
 end
 
 depends 'afw', '~> 0.0.7'  
+depends 'chef-solo-search'

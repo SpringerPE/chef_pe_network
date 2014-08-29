@@ -2,10 +2,15 @@
     "id": "pe-network-berkshelf",
     "_default": {
         "network": {
-           "192.168.1.2": {
-               "device": "eth2",
+           "eth1": {
+               "mac": "08:00:27:84:ee:e7"
+           },
+           "eth2": {
+               "ip": "192.168.1.2",
+               "network": "192.168.1.0",
+               "mask": "255.255.255.0",
                "mac": "08:00:27:84:ee:e7",
-               "mtu": "1400"
+               "onboot": "yes"
            }
         },
         "firewall": {
@@ -27,6 +32,7 @@
                     "source": ["0.0.0.0/0"],
                     "dport": "80"
                 }
+            }
         }
     }
 }

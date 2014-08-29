@@ -13,9 +13,8 @@ Chef::Resource::RubyBlock.send(:include, SPRpe)
 udev = node[:pe_network][:udev]
 networks = node[:pe_network][:network]
 begin
-   networks.each_pair do |ip, parameters|
+   networks.each_pair do |device, parameters|
       # Process the settings
-      device = parameters[:device] ? parameters[:device] : nil
       if parameters[:mac]
          mac = parameters[:mac]
          dev = dev_addr(mac)
@@ -29,25 +28,28 @@ begin
             end
          end
       end
-      Chef::Log.fatal("No device defined for '#{ip}'!") if !device
-      # Set the IP for each device
-      ifconfig device do
-         ignore_failure true
-  	 device device
-         action :delete
-         notifies :add, "ifconfig[#{ip}]", :immediately
-      end
-      ifconfig ip do
-         ignore_failure false
-  	 device device
-         inet_addr ip
-         network parameters[:network] ? parameters[:network] : nil
-         mtu parameters[:mtu] ? parameters[:mtu] : nil
-         mask parameters[:mask] ? parameters[:mask] : nil
-         bcast parameters[:bcast] ? parameters[:bcast] : nil
-         onboot parameters[:onboot] ? parameters[:onboot] : nil
-         action :add
-         #notifies :restart, "service[networking]", :delayed
+      ip = parameters[:ip] ? parameters[:ip] : nil
+      if ip
+         Chef::Log.info("Setting '#{ip}' on '#{device}'")
+         # Set the IP for each device
+         ifconfig device do
+            ignore_failure true
+  	    device device
+            action :delete
+            notifies :add, "ifconfig[#{ip}]", :immediately
+         end
+         ifconfig ip do
+            ignore_failure false
+  	    device device
+            inet_addr ip
+            network parameters[:network] ? parameters[:network] : nil
+            mtu parameters[:mtu] ? parameters[:mtu] : nil
+            mask parameters[:mask] ? parameters[:mask] : nil
+            bcast parameters[:bcast] ? parameters[:bcast] : nil
+            onboot parameters[:onboot] ? parameters[:onboot] : nil
+            action :add
+            #notifies :restart, "service[networking]", :delayed
+         end
       end
    end
 rescue
