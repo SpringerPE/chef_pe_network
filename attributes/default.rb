@@ -8,14 +8,17 @@ default[:pe_network][:environment] = node[:chef_environment] ? node[:chef_enviro
 ### Network Definitions
 default[:pe_network][:udev] = "/etc/udev/rules.d/70-persistent-net.rules"
 default[:pe_network][:network] = {
-#  '192.168.1.2' => {
-#      :device => "eth2",
+#  'eth0' => {
+#      :ip => "192.168.1.2",
 #      :network => "192.168.1.0",
 #      :mask => "255.255.255.0",
 #      :mac => "08:00:27:84:ee:e7",
 #      :mtu => "1400",
 #      :bcast => "192.168.1.255",
 #      :onboot => "yes"
+#  },
+#  'eth1' => {
+#      :mac => "08:00:27:84:ee:e7"
 #  }
 }
 
