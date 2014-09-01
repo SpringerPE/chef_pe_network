@@ -48,7 +48,7 @@ default[:pe_network][:network] = {
 default[:pe_network][:run_fw] = false
 
 ### Firewall
-default[:pe_network][:firewall][:enabled] = true
+default[:pe_network][:firewall][:enabled] = false
 default[:pe_network][:firewall][:log] = true
 # DROP all input packets by defaut
 default[:pe_network][:firewall][:enable_input_drop] = true
