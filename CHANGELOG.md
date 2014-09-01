@@ -1,3 +1,7 @@
+# 0.1.2
+
+Added :run_fw = false attribute to control the FW recipe
+
 # 0.1.1
 
 Changed attribute hash to the device the key, so it is possible to define device <-> mac link without ip 

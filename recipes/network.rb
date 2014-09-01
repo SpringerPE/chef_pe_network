@@ -41,7 +41,7 @@ begin
          ifconfig ip do
             ignore_failure false
   	    device device
-            inet_addr ip
+            target ip
             network parameters[:network] ? parameters[:network] : nil
             mtu parameters[:mtu] ? parameters[:mtu] : nil
             mask parameters[:mask] ? parameters[:mask] : nil

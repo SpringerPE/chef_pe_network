@@ -26,7 +26,7 @@ end
 include_recipe 'pe_network::network'
 
 # Setup firewall
-if node[:pe_network][:firewall] 
+if node[:pe_network][:run_fw]
    include_recipe 'pe_network::firewall'
 end
 
