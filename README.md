@@ -11,6 +11,8 @@ Warning, For the moment, this cookbook does not control the GW!
  * Ubuntu
  * Centos
 
+This cookbook does not work in Debian platforms with chef version 11.4
+
 ## Attributes
 
 To can define the attributes, or use a databag to read and setup all of them.
@@ -42,6 +44,8 @@ default[:pe_network][:network] = {
 #      :mac => "08:00:27:84:ee:e7"
 #  }
 }
+# Do not run the FW recipe by default
+default[:pe_network][:run_fw] = false
 
 ### Firewall
 default[:pe_network][:firewall][:enabled] = true

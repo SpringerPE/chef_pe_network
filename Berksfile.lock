@@ -10,6 +10,5 @@ DEPENDENCIES
 GRAPH
   afw (0.0.7)
   chef-solo-search (0.5.1)
-  pe_network (0.1.0)
+  pe_network (0.1.1)
     afw (~> 0.0.7)
-    chef-solo-search (>= 0.0.0)
